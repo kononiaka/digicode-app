@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PIXI.JS Get started</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="./assets/js/pixi.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pixi-filters@latest/dist/pixi-filters.js"></script>
+  </head>
+  <body>
+    <div id="pixi-wrapper" class="hero"></div>
+    <script>
+      let pixiElement = document.getElementById("pixi-wrapper");
+
+      const app = new PIXI.Application({
+        width: 1400,
+        height: 900,
+        backgroundColor: 0xffffff,
+      });
+      pixiElement.appendChild(app.view);
+
+      function createCircle(x_coordinate, y_coordinate, radius, color) {
+        this.pixiCircle = new PIXI.Graphics();
+        this.pixiCircle.beginFill(color);
+        this.pixiCircle.lineStyle(2, 0xff00ff); //(thickness, color)
+        this.pixiCircle.drawCircle(x_coordinate, y_coordinate, radius); //(x,y,radius)
+        this.pixiCircle.endFill();
+        app.stage.addChild(this.pixiCircle);
+      }
+
+      createCircle(500, 500, 25, 0xfff000);
+    </script>
+  </body>
+</html>
